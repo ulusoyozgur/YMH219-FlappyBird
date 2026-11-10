@@ -16,7 +16,6 @@ public sealed class Bird
     {
         Velocity += 920 * seconds;
         Y += Velocity * seconds;
-        // Tavandan çıkmayı engelle; zemine çarpma GameEngine içinde ele alınır.
         if (Y < Radius) { Y = Radius; Velocity = 0; }
     }
 }

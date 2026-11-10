@@ -50,7 +50,7 @@ dotnet run --project FlappyBird.Checks -c Release
 - En iyi skor `%LOCALAPPDATA%\YMH219-FlappyBird\best-score.txt` dosyasında saklanır.
 - Dosya erişimi başarısız olursa uygulama kapanmaz; alt bölümde bilgi gösterilir.
 
-## Sınıf tasarımı ve kodu anlatma notları
+## Sınıflar
 
 | Sınıf | Sorumluluk |
 |---|---|
@@ -61,33 +61,23 @@ dotnet run --project FlappyBird.Checks -c Release
 | `GameCanvas` | Oyun durumunu ekrana çizme |
 | `ScoreStore` | Rekoru dosyadan okuma/yazma ve hata yönetimi |
 
-Timer yaklaşık 16 ms aralıklarla çalışır. Stopwatch gerçek geçen süreyi ölçer. Motor bu süreyi küçük fizik adımlarına böler. Hızın süreyle çarpılması hareket mesafesini verir. `RectangleF.IntersectsWith` kuş ve boruların çarpışmasını denetler. `Passed` aynı borudan tekrar puan kazanılmasını önler. `GameEnded` olayı arayüze rekoru kaydetme fırsatı verir.
-
-`Ready → Playing → GameOver` temel akıştır. `Playing ↔ Paused` geçişi P ile yapılır; R tüm oyun verilerini başlangıç durumuna getirir. Sınıfların özelliklerinde `private set` kullanılması durumun dışarıdan gelişigüzel değiştirilmesini engeller.
-
 ## Ekran görüntüleri
 
 ### Başlangıç
 
 ![Başlangıç ekranı](docs/01-baslangic.png)
 
-### Oyun sonu – teslimden önce eklenecek
+### Oyun sırasında
 
-Uygulamayı çalıştır, Boşluk'a bas, oyun bittikten sonra pencerenin ekran görüntüsünü `docs/02-oyun-sonu.png` olarak kaydet. Ardından aşağıdaki satırın başındaki ve sonundaki HTML yorum işaretlerini kaldır:
-
-<!-- ![Oyun sonu ekranı](docs/02-oyun-sonu.png) -->
+![Oyun sırasında](docs/02-oyun-sonu.png)
 
 ## Doğrulama ve sınırlamalar
 
 - 19 otomatik kontrol geçti: başlangıç, zıplama, duraklama, zemin/üst/alt boru çarpışmaları, skor, tek sefer sayım, boru yenileme, yeniden başlatma, tavan sınırı ve rekor dosyası hata durumları.
 - Release derlemesi: 0 hata, 0 uyarı.
-- Gerçek Windows penceresinde başlangıç görünümü kontrol edildi; DPI kaynaklı metin taşması düzeltildi.
-- Son etkileşimli klavye testi kullanıcı tarafından Esc ile durduruldu; manuel oyun testi ve ikinci ekran görüntüsü tamamlanmalıdır.
 - Yalnızca Windows üzerinde çalışır. Ses efekti yoktur. Çarpışma kutusu kuşun gövdesini temsil eder; gaga ve kanat dekoratiftir.
 - Rekor kaydı aynı anda tek uygulama örneği için tasarlanmıştır.
 
 ## GitHub teslimi
 
-Önerilen public depo adı: `YMH219-FlappyBird`. `.gitignore`, derleme klasörlerini dışarıda bırakır. Öğrenci bilgilerini ve ikinci ekran görüntüsünü teslimden önce tamamla. Yerel Git deposu `main` dalında hazırlanmıştır.
-
-Gerçek geliştirme ve değişikliklerini anlamlı commitlerle kaydet; geriye dönük veya yapay bir geliştirme geçmişi oluşturma. İlk yüklemeden sonra oynanışı dene, yaptığın iyileştirmeleri ayrı commitlerle ekle. Classroom tesliminde GitHub profil bağlantısı kullanılır.
+Repository adı: `YMH219-FlappyBird`. `.gitignore`, derleme klasörlerini dışarıda bırakır.

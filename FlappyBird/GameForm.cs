@@ -87,7 +87,7 @@ public sealed class GameForm : Form
         if (e.KeyCode is not (Keys.Space or Keys.Up or Keys.W or Keys.R or Keys.P or Keys.Escape)) return;
         e.Handled = true;
         e.SuppressKeyPress = true;
-        if (!heldKeys.Add(e.KeyCode)) return; // Basılı tutma otomatik kanat çırpmasın.
+        if (!heldKeys.Add(e.KeyCode)) return;
         if (e.KeyCode == Keys.R) Restart();
         else if (e.KeyCode is Keys.P or Keys.Escape) game.TogglePause();
         else game.Flap();
@@ -186,7 +186,6 @@ internal sealed class GameCanvas(GameEngine game, Func<int> best) : Control
         g.FillRectangle(gradient, rect);
         FillRect(g, Color.FromArgb(105, 193, 157), rect.X + 6, rect.Y, 9, rect.Height);
         float rimY = top ? rect.Bottom - 22 : rect.Y;
-        // Kenarlık da çarpışma dikdörtgeninin içinde kalır.
         FillRect(g, Color.FromArgb(25, 81, 77), rect.X, rimY, rect.Width, 22);
         FillRect(g, Color.FromArgb(72, 165, 138), rect.X + 3, rimY + 3, rect.Width - 6, 16);
     }

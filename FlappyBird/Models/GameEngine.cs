@@ -49,7 +49,6 @@ public sealed class GameEngine
     public void Update(float seconds)
     {
         if (State != GameState.Playing || !float.IsFinite(seconds) || seconds <= 0) return;
-        // Küçük fizik adımları hızlı hareketlerde engellerin içinden geçmeyi önler.
         float remaining = Math.Min(seconds, 0.1f);
         while (remaining > 0 && State == GameState.Playing)
         {
