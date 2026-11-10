@@ -4,8 +4,8 @@ C# ve Windows Forms ile geliştirilen masaüstü oyunu. Kuşu boruların arasın
 
 ## Öğrenci bilgileri
 
-- Ad soyad: **Teslimden önce doldurunuz**
-- Öğrenci numarası: **Teslimden önce doldurunuz**
+- Ad soyad: Özgür Ulusoy
+- Öğrenci numarası: 250541083
 
 ## Teknolojiler
 
